@@ -6,7 +6,7 @@ struct LinkedList *addNode(struct LinkedList *, int);
 int size(struct LinkedList *);
 void printList(struct LinkedList *);
 int isEmpty(struct LinkedList *);
-struct LinkedList *alloc();
+struct LinkedList *allocNode();
 
 struct LinkedList{
 	int data;
@@ -23,7 +23,7 @@ int main(){
 }
 struct LinkedList *addNode(struct LinkedList *p, int data){
 	if(isEmpty(p)){
-		p = alloc(); //Allocate room in memory
+		p = allocNode(); //Allocate room in memory
 		p->data = data;
 		p->next = NULL;
 	}
@@ -53,6 +53,6 @@ void printList(struct LinkedList *p){
 		p = p->next;	
 	} 
 }
-struct LinkedList *alloc(){
+struct LinkedList *allocNode(){
 	return (struct LinkedList *) malloc(sizeof(struct LinkedList));
 }
